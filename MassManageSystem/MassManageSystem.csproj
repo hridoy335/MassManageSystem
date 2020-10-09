@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +175,12 @@
     <Compile Include="Models\TotalMillExpenseInfoTbl.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation\BazarInfoTbl.cs" />
+    <Compile Include="Models\Validation\MemberAccountInfoTbl.cs" />
+    <Compile Include="Models\Validation\MemberInfoTbl.cs" />
+    <Compile Include="Models\Validation\MillInfoTbl.cs" />
+    <Compile Include="Models\Validation\PaymentReportForMill.cs" />
+    <Compile Include="Models\Validation\TotalMillExpenseInfoTbl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +188,35 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap5.css" />
+    <Content Include="Content\DataTable\css\dataTables.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.bulma.css" />
+    <Content Include="Content\DataTable\css\dataTables.bulma.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.dataTables.css" />
+    <Content Include="Content\DataTable\css\dataTables.dataTables.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTable\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTable\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.material.css" />
+    <Content Include="Content\DataTable\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTable\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTable\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTable\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTable\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTable\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTable\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTable\images\favicon.ico" />
+    <Content Include="Content\DataTable\images\sort_asc.png" />
+    <Content Include="Content\DataTable\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTable\images\sort_both.png" />
+    <Content Include="Content\DataTable\images\sort_desc.png" />
+    <Content Include="Content\DataTable\images\sort_desc_disabled.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -204,7 +240,33 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\DataTable\images\Sorting icons.psd" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap5.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bootstrap5.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bulma.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.bulma.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.dataTables.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.dataTables.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.legacy.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.legacy.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.material.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTable\js\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTable\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTable\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTable\js\jquery.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -214,6 +276,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MemberManage.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -229,6 +292,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\MemberManage\Index.cshtml" />
+    <Content Include="Views\MemberManage\PartialAddMemberinfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
