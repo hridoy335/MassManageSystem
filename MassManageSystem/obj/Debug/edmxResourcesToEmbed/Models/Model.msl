@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MassManageSystemModelStoreContainer" CdmEntityContainer="MassManageSystemEntities">
+    <EntitySetMapping Name="BazarInfoTbls">
+      <EntityTypeMapping TypeName="MassManageSystemModel.BazarInfoTbl">
+        <MappingFragment StoreEntitySet="BazarInfoTbl">
+          <ScalarProperty Name="BazarInfoId" ColumnName="BazarInfoId" />
+          <ScalarProperty Name="MemberInfoId" ColumnName="MemberInfoId" />
+          <ScalarProperty Name="TotalBazar" ColumnName="TotalBazar" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberAccountInfoTbls">
+      <EntityTypeMapping TypeName="MassManageSystemModel.MemberAccountInfoTbl">
+        <MappingFragment StoreEntitySet="MemberAccountInfoTbl">
+          <ScalarProperty Name="MamberAccountId" ColumnName="MamberAccountId" />
+          <ScalarProperty Name="MemberInfoId" ColumnName="MemberInfoId" />
+          <ScalarProperty Name="AccountForMill" ColumnName="AccountForMill" />
+          <ScalarProperty Name="AccountForFlat" ColumnName="AccountForFlat" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentForMonth" ColumnName="PaymentForMonth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberInfoTbls">
+      <EntityTypeMapping TypeName="MassManageSystemModel.MemberInfoTbl">
+        <MappingFragment StoreEntitySet="MemberInfoTbl">
+          <ScalarProperty Name="MemberInfoId" ColumnName="MemberInfoId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ParentContact" ColumnName="ParentContact" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MillInfoTbls">
+      <EntityTypeMapping TypeName="MassManageSystemModel.MillInfoTbl">
+        <MappingFragment StoreEntitySet="MillInfoTbl">
+          <ScalarProperty Name="MillInfoId" ColumnName="MillInfoId" />
+          <ScalarProperty Name="MemberInfoId" ColumnName="MemberInfoId" />
+          <ScalarProperty Name="Morning" ColumnName="Morning" />
+          <ScalarProperty Name="Lunch" ColumnName="Lunch" />
+          <ScalarProperty Name="Dinner" ColumnName="Dinner" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentReportForMills">
+      <EntityTypeMapping TypeName="MassManageSystemModel.PaymentReportForMill">
+        <MappingFragment StoreEntitySet="PaymentReportForMill">
+          <ScalarProperty Name="PaymentReportId" ColumnName="PaymentReportId" />
+          <ScalarProperty Name="MemberInfoId" ColumnName="MemberInfoId" />
+          <ScalarProperty Name="TotalMillInfoId" ColumnName="TotalMillInfoId" />
+          <ScalarProperty Name="TotalMillPrice" ColumnName="TotalMillPrice" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="TotalReturn" ColumnName="TotalReturn" />
+          <ScalarProperty Name="CalculatingMonth" ColumnName="CalculatingMonth" />
+          <ScalarProperty Name="DueStatus" ColumnName="DueStatus" />
+          <ScalarProperty Name="PaymentTotal" ColumnName="PaymentTotal" />
+          <ScalarProperty Name="DueTotal" ColumnName="DueTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MassManageSystemModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalMillExpenseInfoTbls">
+      <EntityTypeMapping TypeName="MassManageSystemModel.TotalMillExpenseInfoTbl">
+        <MappingFragment StoreEntitySet="TotalMillExpenseInfoTbl">
+          <ScalarProperty Name="TotalMillInfoId" ColumnName="TotalMillInfoId" />
+          <ScalarProperty Name="TotalMill" ColumnName="TotalMill" />
+          <ScalarProperty Name="TotalExpense" ColumnName="TotalExpense" />
+          <ScalarProperty Name="ParMill" ColumnName="ParMill" />
+          <ScalarProperty Name="MillExpenseMonth" ColumnName="MillExpenseMonth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MassManageSystemModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MassManageSystemModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MassManageSystemModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MassManageSystemModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MassManageSystemModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MassManageSystemModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MassManageSystemModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MassManageSystemModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MassManageSystemModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

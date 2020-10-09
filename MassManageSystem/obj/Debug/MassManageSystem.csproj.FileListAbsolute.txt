@@ -77,3 +77,7 @@ D:\My Project\MassManageSystem\MassManageSystem\obj\Debug\MassManageSystem.cspro
 D:\My Project\MassManageSystem\MassManageSystem\obj\Debug\MassManageSystem.csproj.CopyComplete
 D:\My Project\MassManageSystem\MassManageSystem\obj\Debug\MassManageSystem.dll
 D:\My Project\MassManageSystem\MassManageSystem\obj\Debug\MassManageSystem.pdb
+D:\My Project\MassManageSystem\MassManageSystem\bin\EntityFramework.dll
+D:\My Project\MassManageSystem\MassManageSystem\bin\EntityFramework.SqlServer.dll
+D:\My Project\MassManageSystem\MassManageSystem\bin\EntityFramework.xml
+D:\My Project\MassManageSystem\MassManageSystem\bin\EntityFramework.SqlServer.xml

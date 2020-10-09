@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c54f6a127f57444bae5496ef8a7e3024" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="MassManageSystemModel.BazarInfoTbl" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.MemberAccountInfoTbl" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.MemberInfoTbl" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.MillInfoTbl" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.PaymentReportForMill" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MassManageSystemModel.TotalMillExpenseInfoTbl" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MassManageSystemModel.FK_BazarInfoTbl_MemberInfoTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="MassManageSystemModel.FK_MemberAccountInfoTbl_MemberInfoTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="MassManageSystemModel.FK_MillInfoTbl_MemberInfoTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="MassManageSystemModel.FK_PaymentReportForMill_MemberInfoTbl" ManuallyRouted="false" />
+        <AssociationConnector Association="MassManageSystemModel.FK_PaymentReportForMill_TotalMillExpenseInfoTbl" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
