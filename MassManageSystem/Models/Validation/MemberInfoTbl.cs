@@ -12,8 +12,8 @@ namespace MassManageSystem.Models
     }
     public class MetadataMemberInfoTbl
     {
-        [Required(ErrorMessage ="Name is required")]
-        [Display(Name = "Name")]
+        [Required(ErrorMessage = "Name is required")]
+        [Display(Name = "Nameccccccccccccccccc")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Contact is required")]
@@ -32,7 +32,7 @@ namespace MassManageSystem.Models
         [Display(Name = "Parent Contact")]
         public string ParentContact { get; set; }
 
-       // [Required(ErrorMessage = "Status is required")]
+        // [Required(ErrorMessage = "Status is required")]
         [Display(Name = "Status")]
         public bool Status { get; set; }
 

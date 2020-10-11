@@ -30,10 +30,69 @@ namespace MassManageSystem.Controllers
         {
             return PartialView("PartialAddMemberinfo");
         }
+        [HttpPost]
+        public ActionResult AddMemberInfo(MemberInfoTbl memberInfoTbl)
+        {
+            //int er = 0;
+            //if (memberInfoTbl.Name == null)
+            //{
+            //    er++;
+            //  //  return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.Contact == null)
+            //{
+            //    er++;
+            //   // return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.Email == null)
+            //{
+            //    er++;
+            //   // return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.Image == null)
+            //{
+            //    er++;
+            //    //return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.ParentContact == null)
+            //{
+            //    er++;
+            //   // return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.UserName == null)
+            //{
+            //    er++;
+            //   // return Json("Not Insert");
+            //}
+            //if (memberInfoTbl.Password == null)
+            //{
+            //    er++;
+            //  //  return Json("Not Insert");
+            //}
+
+            //if (er > 0)
+            //{
+            //    return Json("Not Insert");
+            //}
+
+            if (ModelState.IsValid)
+            {
+                db.MemberInfoTbls.Add(memberInfoTbl);
+                db.SaveChanges();
+                return Json("Insert successfull");
+            }
+            return View(memberInfoTbl);
+         
+        }
 
         //public ActionResult PartialAddMemberinfo()
         //{
         //    return PartialView("PartialAddMemberinfo");
         //}
+
+        public ActionResult addmember()
+        {
+            return View();
+        }
     }
 }

@@ -26,7 +26,7 @@ function BindgetMemberInfodata(response) {
             { "mData": "Contact" },
             { "mData": "Email" },
             { "mData": "Image" },
-            { "mData": "Parent Contact" },
+            { "mData": "ParentContact" },
             { "mData": "Status" },
             // { "mData": "CourseId" },
             //{
@@ -53,13 +53,45 @@ function AddMember() {
 
 // Add Memberinfo partialview data save
 function SaveMember() {
+    var e;
     var name = $("#Name").val();
-    var Contact = $("#Contact").val();
-    var Email = $("#Email").val();
-    var Image = $("#Image").val();
-    var ParentContact = $("#ParentContact").val();
-    var Status = $("#Status").val();
-    var UserName = $("#UserName").val();
-    var Password = $("#Password").val();
+    var contact = $("#Contact").val();
+    var email = $("#Email").val();
+    var image = $("#Image").val();
+    var parentContact = $("#ParentContact").val();
+    var status = $("#Status").val();
+    var userName = $("#UserName").val();
+    var password = $("#Password").val();
+
+    debugger
+    var data2 = $("#MemForm").serialize();
+    //e.preventDefault(); 
+    if ($("#MemForm").valid()) {
+
+        $.ajax({
+            type: "POST",
+            url: "../MemberManage/AddMemberInfo",
+            data: {
+                Name: name,
+                Contact: contact,
+                Email: email,
+                Image: image,
+                ParentContact: parentContact,
+                Status: status,
+                UserName: userName,
+                Password: password
+
+            },
+            success: function (data) {
+                alert("Save MemberInfo Successfully .. ");
+                $("#loaderDiv").hide();
+                $("#myModal").modal("hide");
+                window.location.href = "/MemberManage/index";
+            }
+        });
+    }
+
+  
+    
   
 }
