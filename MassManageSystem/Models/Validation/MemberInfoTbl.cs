@@ -13,7 +13,7 @@ namespace MassManageSystem.Models
     public class MetadataMemberInfoTbl
     {
         [Required(ErrorMessage = "Name is required")]
-        [Display(Name = "Nameccccccccccccccccc")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Contact is required")]

@@ -1,11 +1,15 @@
 ﻿@model MassManageSystem.Models.MemberInfoTbl
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
 
 @*@using (Html.BeginForm("Employee", "Home", FormMethod.Post, new { id = "EmpForm" }))*@
-@using (Html.BeginForm( new { @id = "MemForm" })) 
+@using (Html.BeginForm(new { @id = "MemForm" }))
 {
-            @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-            <div class="form-horizontal">
+    <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*<div class="form-group">

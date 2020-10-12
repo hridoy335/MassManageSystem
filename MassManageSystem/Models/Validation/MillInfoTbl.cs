@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MassManageSystem.Models.Validation
+namespace MassManageSystem.Models
 {
     [MetadataType(typeof(MetadataMillInfoTbl))] 
     public partial class MillInfoTbl

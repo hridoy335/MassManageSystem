@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberManageController.cs" />
+    <Compile Include="Controllers\MillManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +278,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\MemberManage.js" />
+    <Content Include="Scripts\MillManage.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -295,6 +297,9 @@
     <Content Include="Views\MemberManage\Index.cshtml" />
     <Content Include="Views\MemberManage\PartialAddMemberinfo.cshtml" />
     <Content Include="Views\MemberManage\addmember.cshtml" />
+    <Content Include="Views\MemberManage\PartialAddEditMemberInfo.cshtml" />
+    <Content Include="Views\MillManage\MillManageIndex.cshtml" />
+    <Content Include="Views\MillManage\MillAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
