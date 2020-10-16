@@ -1,6 +1,17 @@
 ﻿$(document).ready(function () {
     //alert("JS loaded");
+    
+    var currentTime = new Date()
+    var minDate = new Date(currentTime.getFullYear(), currentTime.getMonth(), +1); //one day next before month
+    var maxDate = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, +2); // one day before next month
+    $("#date").datepicker({
+        minDate: minDate,
+        maxDate: maxDate
+    });
+
+
     getMemberInfo();
+    getMemberInfoBazar();
 });
 
 function getMemberInfo() {
@@ -9,6 +20,20 @@ function getMemberInfo() {
         url: "../MillManage/GetMemberInfo",
         success: function (data) {
             var sep1 = $('#Member');
+            $.each(data, function (k, v) {
+                sep1.append('<option value="' + v.MemberInfoId + '">' + v.Name + '</option>');
+                //console.log(JSON.stringify(v.Name));
+            });
+        }
+
+    })
+}
+function getMemberInfoBazar() {
+    $.ajax({
+        type: "GET",
+        url: "../MillManage/GetMemberInfo",
+        success: function (data) {
+            var sep1 = $('#MemberForBazar');
             $.each(data, function (k, v) {
                 sep1.append('<option value="' + v.MemberInfoId + '">' + v.Name + '</option>');
                 //console.log(JSON.stringify(v.Name));
@@ -63,9 +88,12 @@ jQuery(document).delegate('.add-record', 'click', function (e) {
         size = jQuery('#resultTable >tbody >tr').length - 1,
         element = null,
         element = content.clone();
+
     element.attr('id', 'rec-' + size);
     element.find('.delete-record').attr('data-id', size);
     element.appendTo('#resultTable_body');
+   // var i=element.find('id');
+    //alert();
 
     element.find('.sn').html(size);
     element.find('.Member').html(MemberText);
@@ -79,7 +107,7 @@ jQuery(document).delegate('.add-record', 'click', function (e) {
     $('#Lunch').val('');
     $('#Dinner').val('');
 
-    alert(Mirning);
+    //alert(Mirning);
     //console.log(JSON.stringify(content));
     var totalMorning = calculateTotalMorning();
     var totalLunch = calculateTotalLunch();
@@ -102,6 +130,7 @@ jQuery(document).delegate('.edit-record', 'click', function (e) {
     var Lunch = element.find('.Lunch').html();
     var Dinner = element.find('.Dinner').html();
     /*$("#course option:contains(" + course + ")").attr('selected', 'selected');*/
+    $('#id').val(id);
     $('#Mirning').val(Mirning);
     $('#Lunch').val(Lunch);
     $('#Dinner').val(Dinner);
@@ -119,6 +148,30 @@ jQuery(document).delegate('.edit-record', 'click', function (e) {
     //$('#course').find("select option:contains('" + courseID + "')").attr('selected', true);
 });
 
+jQuery(document).delegate('.delete-record', 'click', function (e) {
+    e.preventDefault();
+    var didConfirm = confirm("Are you sure You want to delete");
+    if (didConfirm == true) {
+        var id = jQuery(this).attr('data-id');
+        alert(id);
+        var targetDiv = jQuery(this).attr('targetDiv');
+        jQuery('#rec-' + id).remove();
+
+        //regenerate index number on table
+        $('#tbl_posts_body tr').each(function (index) {
+            alert(index);
+            $(this).find('span.sn').html(index + 1); 
+        });
+        var totalMorning = calculateTotalMorning();
+        var totalLunch = calculateTotalLunch();
+        var totalDinner = calculateTotalDinner();
+
+        $('#totalMorning').html(totalMorning);
+        $('#totalLunch').html(totalLunch);
+        $('#totalDinner').html(totalDinner);
+    }
+
+});
 
 
 function calculateTotalMorning() {
@@ -155,4 +208,25 @@ function calculateTotalDinner() {
 
     });
     return total;
+}
+
+function saveData() {
+    var date = $('#date').val();
+    var bazar = $('#Bazar').val();
+    var Membervalforbazar = $('#MemberForBazar').val()
+
+    if (date==""|| date == undefined || date == null) {
+        alert("Select date first");
+        return;
+    }
+    //alert(data);
+    //console.log(JSON.stringify(date));
+    if (bazar == "" || bazar == undefined || bazar == null) {
+        alert("Insert bazar amount first");
+        return;
+    }
+    if (Membervalforbazar == null || Membervalforbazar == "" || Membervalforbazar == undefined) {
+        alert("Select today bazar person first");
+        return;
+    }
 }

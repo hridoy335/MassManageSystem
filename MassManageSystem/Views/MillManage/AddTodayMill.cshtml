@@ -6,25 +6,41 @@
 }
 
 <hr />
-<h2>Add Today Mill</h2>
+<h2 class="text-center">Add Today Mill & Bazar</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    <hr />
     <div class="form-horizontal">
-       
+
         <div class="form-group">
             @Html.Label("Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.ExamTypeId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ExamTypeId, "", new { @class = "text-danger" })*@
-                <input type="date" id="date" />
+                @*@Html.TextBoxFor(model => model.Date, new {  @class = "date"  })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })*@
+                <input type="text" id="date" placeholder="Select-date" />
             </div>
         </div>
+        <div class="form-group">
+            @Html.Label("Member Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="MemberForBazar">
+                    <option selected value="">-Select Member-</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("TodayBazar", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control" type="number" placeholder=" TotalTaka" id="Bazar" />
+            </div>
+        </div>
+
         <hr />
 
-        <label class="control-label"><h2>Add New Mill</h2></label>
+
+        <h2 class="">Add New Mill</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -33,7 +49,7 @@
                             @Html.Label("Member Name", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @*@Html.EditorFor(model => model.StudentId, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })*@
+                                @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })*@
                                 <select class="form-control" id="Member">
                                     <option selected value="">-Select Member-</option>
                                 </select>
@@ -46,7 +62,7 @@
                             @Html.Label("Mirning", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
                                 <input class="form-control" type="number" placeholder=" Enter Mill" id="Mirning" />
                             </div>
                         </div>
@@ -57,7 +73,7 @@
                             @Html.Label("Lunch", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
                                 <input class="form-control" type="number" placeholder=" Enter MIll" id="Lunch" />
                             </div>
                         </div>
@@ -67,7 +83,7 @@
                             @Html.Label("Dinner", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
                                 <input class="form-control" type="number" placeholder=" Enter Mill" id="Dinner" />
                             </div>
                         </div>
@@ -76,7 +92,7 @@
                     <td>
                         <div class="form-group">
                             <div class="col-md-10">
-                                <input type="button" class="form-control btn btn-default add-record" onclick="AddRow()" value="Add Row" id="AddRow()"/>
+                                <input type="button" class="form-control btn btn-default add-record" value="Add Row" />
                             </div>
                         </div>
                     </td>
@@ -89,11 +105,11 @@
     </div>
 
 
-    <label class="control-label">Member Wise Mill Grid</label>
+    <h2 class="">Member Wise Mill Grid</h2>
     <table style="display:none" id="sample_table">
         <tr>
             <td><span class="sn"></span>.</td>
-            <td class="Member">MemberName</td> 
+            <td class="Member">MemberName</td>
             <td class="MemberInfoId" style="display:none">Member ID</td>
             <td class="Mirning">100</td>
             <td class="Lunch">1</td>
@@ -132,27 +148,27 @@
             </tr>
         </thead>
         <tbody id="resultTable_body">
-                <tr>
-                </tr>
-            </tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td style="display:none"></td>
-                <td>totalMorning : <span class="info" id="totalMorning"></span> </td>
-                <td>totalLunch : <span class="info" id="totalLunch"></span></td>
-                <td>totalDinner : <span class="info" id="totalDinner"></span></td>
-                <td></td>
             </tr>
+        </tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td style="display:none"></td>
+            <td>totalMorning : <span class="info" id="totalMorning"></span> </td>
+            <td>totalLunch : <span class="info" id="totalLunch"></span></td>
+            <td>totalDinner : <span class="info" id="totalDinner"></span></td>
+            <td></td>
+        </tr>
     </table>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="button" value="Create" id="btnSave" class="btn btn-default" onclick="saveData()" />
+            <input type="button" value="Create" id="saveData()" class="btn btn-default" onclick="saveData()"  />
             @*<input class="btn-default" type="button" id="btnSave" value="Save" onclick="saveData()" />*@
         </div>
     </div>
- 
+
 }
 
 
@@ -161,4 +177,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/addTodayMIll.js"></script>
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 }
