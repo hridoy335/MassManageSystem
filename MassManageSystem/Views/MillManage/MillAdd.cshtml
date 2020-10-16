@@ -5,9 +5,94 @@
     Layout = null;
 }
 
-<h2>MillAdd</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
+
+    
+
+   
+    <div class="form-horizontal">
+        <h4>MillAdd</h4>
+
+        <div class="form-group">
+            @Html.Label("Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ExamTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ExamTypeId, "", new { @class = "text-danger" })*@
+                <input type="date" id="date" />
+            </div>
+        </div>
+        <hr />
+
+        <label class="control-label"><h2>Add New Mill</h2></label>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.Label("Member Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @*@Html.EditorFor(model => model.StudentId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })*@
+                                <select class="form-control" id="Member">
+                                    <option selected value="">-Select Member-</option>
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            @Html.Label("Mirning", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                <input class="form-control" type="number" placeholder=" Enter Marks" id="Mirning" />
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <td>
+                        <div class="form-group">
+                            @Html.Label("Lunch", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                <input class="form-control" type="number" placeholder=" Enter Marks" id="Lunch" />
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.Label("Dinner", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })*@
+                                <input class="form-control" type="number" placeholder=" Enter Marks" id="Dinner" />
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="button" class="form-control btn btn-default add-record" onclick="AddRow()" value="Add Row" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <h3></h3>
+    </div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/addTodayMIll.js"></script>
 }

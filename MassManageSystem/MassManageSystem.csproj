@@ -232,6 +232,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\addTodayMIll.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model.edmx">
@@ -300,6 +301,7 @@
     <Content Include="Views\MemberManage\PartialAddEditMemberInfo.cshtml" />
     <Content Include="Views\MillManage\MillManageIndex.cshtml" />
     <Content Include="Views\MillManage\MillAdd.cshtml" />
+    <Content Include="Views\MillManage\AddTodayMill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

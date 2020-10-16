@@ -24,6 +24,7 @@ namespace MassManageSystem.Controllers
             return Json(memberinfo, JsonRequestBehavior.AllowGet);
         }
 
+
         // add memberinfo 
         [HttpGet]
         public ActionResult AddMemberInfo()
