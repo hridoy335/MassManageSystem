@@ -38,6 +38,21 @@ namespace MassManageSystem.Controllers
             return Json(memberinfo, JsonRequestBehavior.AllowGet);
         }
 
+        // Insert millinformation 
+        [HttpPost]
+        public ActionResult PostMillInfo(MillInfoTbl millInfoTbl)
+        {
+            if (ModelState.IsValid)
+            {
+                db.MillInfoTbls.Add(millInfoTbl);
+                db.SaveChanges();
+                return Json(1);
+            }
+            return View(millInfoTbl);
+        }
+
+    
+
 
     }
 }

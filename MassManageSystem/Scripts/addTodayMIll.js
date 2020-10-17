@@ -6,7 +6,8 @@
     var maxDate = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, +2); // one day before next month
     $("#date").datepicker({
         minDate: minDate,
-        maxDate: maxDate
+        maxDate: maxDate,
+        dateFormat: 'yy-dd-mm'
     });
 
 
@@ -215,6 +216,14 @@ function saveData() {
     var bazar = $('#Bazar').val();
     var Membervalforbazar = $('#MemberForBazar').val()
 
+    var rowCount = 0;
+    $('#resultTable tr').each(function () {
+        var MemberInfoId = $(this).find(".MemberInfoId").html();
+        if (MemberInfoId !== null && typeof (MemberInfoId) !== 'undefined') {
+            rowCount += 1;
+        }
+    });
+   // console.log(JSON.stringify(rowCount));
     if (date==""|| date == undefined || date == null) {
         alert("Select date first");
         return;
@@ -229,4 +238,69 @@ function saveData() {
         alert("Select today bazar person first");
         return;
     }
+
+    if (rowCount == 0) {
+        alert('Data Grid is empty.. ');
+        return;
+    }
+   // alert(date);
+
+    $.ajax({
+        type: "POST",
+        url: "../BazarManage/PostBazarInfo",
+        data: {
+            MemberInfoId: Membervalforbazar,
+            TotalBazar: bazar,
+            Image: "",
+            Date: date
+        },
+        success: function (data) {
+            //if (data> 0) {
+            alert("Data saved successfully");
+            //} else {
+            //    alert("Something went wrong! please try again!");
+            //}
+        }
+
+    });
+
+    var reportResultList = [];
+    $('#resultTable tr').each(function () {
+        var MemberInfoId = $(this).find(".MemberInfoId").html();
+        var Mirning = $(this).find(".Mirning").html();
+        var Lunch = $(this).find(".Lunch").html();
+        var Dinner = $(this).find(".Dinner").html();
+        if (MemberInfoId !== null && typeof (MemberInfoId) !== 'undefined') {
+            var data = {
+                //ReportResultId: 1,
+                MemberInfoId: MemberInfoId,
+                Mirning: Mirning,
+                Lunch: Lunch,
+                Dinner: Dinner,
+                Date: date
+            }
+            
+         //  reportResultList.push(data);
+            $.ajax({
+                type: "POST",
+                url: "../MillManage/PostMillInfo",
+                data: data,
+                success: function (data) {
+                   // if (data > 0) {
+                        alert("Data saved successfully");
+                   // } else {
+                    //    alert("Something went wrong! please try again!");
+                    //}
+
+                }
+            });
+        }
+
+   
+
+    });
+
+  
+    //console.log(JSON.stringify(reportResultList));
+   
 }

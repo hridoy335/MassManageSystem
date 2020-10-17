@@ -5,11 +5,12 @@
 
 // get Memberinfo data and show this data
 function getMemberInfo() {
+  //  alert("yes");
     $.ajax({
         type: "GET",
         url: "../MemberManage/GetMemberInfo",
         success: function (response) {
-            //console.log(JSON.stringify(response));
+           // console.log(JSON.stringify(response));
             BindgetMemberInfodata(response);
         }
 
@@ -42,7 +43,7 @@ function BindgetMemberInfodata(response) {
     });
 }
 
-// Add Memberinfo Partialview calling
+ //Add Memberinfo Partialview calling
 function AddMember() {
     var url = "../MemberManage/AddMemberInfo"
 
@@ -100,6 +101,7 @@ function SaveMember() {
 
       
     //}
+    
     $.ajax({
         type: "POST",
         url: "../MemberManage/AddMemberInfo",
@@ -154,11 +156,16 @@ function PartialAddEditMemberInfo() {
     var password = $("#Password").val();
     var MemberId = $("#Memberid").val();
     console.log(JSON.stringify(userName))
+    //var status;
+    //if (status1 == true) {
+    //     status = true;
+        
+    //}
+    
+    //else { status = false; }
 
-    if (status1 == true) {
-        status = true;
-    }
-    else { status = false; }
+    console.log(JSON.stringify(status));
+
     $.ajax({
         type: "POST",
         url: "../MemberManage/PartialAddEditMemberInfo",
@@ -169,7 +176,7 @@ function PartialAddEditMemberInfo() {
             Email: email,
             Image: image,
             ParentContact: parentContact,
-            Status: status,
+            Status: status1,
             UserName: userName,
             Password: password
 
