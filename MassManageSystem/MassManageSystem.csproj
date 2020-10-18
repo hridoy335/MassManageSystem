@@ -346,10 +346,10 @@
     <Content Include="Views\MillManage\MillManageIndex.cshtml" />
     <Content Include="Views\MillManage\MillAdd.cshtml" />
     <Content Include="Views\MillManage\AddTodayMill.cshtml" />
+    <Content Include="Views\BazarManage\BazarManageIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BazarManage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

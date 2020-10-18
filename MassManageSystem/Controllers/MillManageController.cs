@@ -40,13 +40,14 @@ namespace MassManageSystem.Controllers
 
         // Insert millinformation 
         [HttpPost]
+       // [ValidateAntiForgeryToken]
         public ActionResult PostMillInfo(MillInfoTbl millInfoTbl)
         {
             if (ModelState.IsValid)
             {
                 db.MillInfoTbls.Add(millInfoTbl);
                 db.SaveChanges();
-                return Json(1);
+                return Json(true);
             }
             return View(millInfoTbl);
         }

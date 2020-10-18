@@ -15,6 +15,7 @@
     getMemberInfoBazar();
 });
 
+//Get massmember information 
 function getMemberInfo() {
     $.ajax({
         type: "GET",
@@ -44,11 +45,12 @@ function getMemberInfoBazar() {
     })
 }
 
+// Add Mill in view table
 jQuery(document).delegate('.add-record', 'click', function (e) {
     e.preventDefault();
     //alert("Add function call");
     var Memberval = $('#Member').val()
-    var Mirning = $('#Mirning').val();
+    var Morning = $('#Morning').val();
     var Lunch = $('#Lunch').val();
     var Dinner = $('#Dinner').val();
 
@@ -72,7 +74,7 @@ jQuery(document).delegate('.add-record', 'click', function (e) {
     }
 
 
-    if (Mirning == null || typeof (Mirning) == 'undefined' || Mirning == '') {
+    if (Morning == null || typeof (Morning) == 'undefined' || Morning == '') {
         alert('Please Insert Mirning mill');
         return;
     }
@@ -99,12 +101,12 @@ jQuery(document).delegate('.add-record', 'click', function (e) {
     element.find('.sn').html(size);
     element.find('.Member').html(MemberText);
     element.find('.MemberInfoId').html(Memberval);
-    element.find('.Mirning').html(Mirning);
+    element.find('.Morning').html(Morning);
     element.find('.Lunch').html(Lunch);
     element.find('.Dinner').html(Dinner);
 
     $('#Member').val('');
-    $('#Mirning').val('');
+    $('#Morning').val('');
     $('#Lunch').val('');
     $('#Dinner').val('');
 
@@ -122,17 +124,19 @@ jQuery(document).delegate('.add-record', 'click', function (e) {
 
 });
 
+// Edit Mill in view table information
+
 jQuery(document).delegate('.edit-record', 'click', function (e) {
     var element = $(this).parents('tr');
     var id = element.attr('data-id');
     var Member = element.find('.Member').html();
     var MemberInfoId = element.find('.MemberInfoId').html();
-    var Mirning = element.find('.Mirning').html();
+    var Morning = element.find('.Morning').html();
     var Lunch = element.find('.Lunch').html();
     var Dinner = element.find('.Dinner').html();
     /*$("#course option:contains(" + course + ")").attr('selected', 'selected');*/
     $('#id').val(id);
-    $('#Mirning').val(Mirning);
+    $('#Morning').val(Morning);
     $('#Lunch').val(Lunch);
     $('#Dinner').val(Dinner);
     $('#Member').val(MemberInfoId);
@@ -148,6 +152,8 @@ jQuery(document).delegate('.edit-record', 'click', function (e) {
     $('#totalDinner').html(totalDinner);
     //$('#course').find("select option:contains('" + courseID + "')").attr('selected', true);
 });
+
+// Delete Mill in view Information
 
 jQuery(document).delegate('.delete-record', 'click', function (e) {
     e.preventDefault();
@@ -174,19 +180,20 @@ jQuery(document).delegate('.delete-record', 'click', function (e) {
 
 });
 
-
+// Calculate total Morning Mill in view table information 
 function calculateTotalMorning() {
     var total = 0;
     $('#resultTable tr').each(function () {
-        var Mirning = $(this).find(".Mirning").html();
-        if (Mirning !== null && typeof (Mirning) !== 'undefined') {
-            total += parseInt(Mirning);
+        var Morning = $(this).find(".Morning").html();
+        if (Morning !== null && typeof (Morning) !== 'undefined') {
+            total += parseInt(Morning);
         }
 
     });
     return total;
 }
 
+// Calculate total Lunch Mill in view table information 
 function calculateTotalLunch() {
     var total = 0;
     $('#resultTable tr').each(function () {
@@ -199,6 +206,7 @@ function calculateTotalLunch() {
     return total;
 }
 
+// Calculate total Dinner Mill in view table information 
 function calculateTotalDinner() {
     var total = 0;
     $('#resultTable tr').each(function () {
@@ -211,6 +219,7 @@ function calculateTotalDinner() {
     return total;
 }
 
+// Save Mill and Bazar in this database
 function saveData() {
     var date = $('#date').val();
     var bazar = $('#Bazar').val();
@@ -245,53 +254,54 @@ function saveData() {
     }
    // alert(date);
 
-    $.ajax({
-        type: "POST",
-        url: "../BazarManage/PostBazarInfo",
-        data: {
-            MemberInfoId: Membervalforbazar,
-            TotalBazar: bazar,
-            Image: "",
-            Date: date
-        },
-        success: function (data) {
-            //if (data> 0) {
-            alert("Data saved successfully");
-            //} else {
-            //    alert("Something went wrong! please try again!");
-            //}
-        }
+    //$.ajax({
+    //    type: "POST",
+    //    url: "../BazarManage/PostBazarInfo",
+    //    data: {
+    //        MemberInfoId: Membervalforbazar,
+    //        TotalBazar: bazar,
+    //        Image: "",
+    //        Date: date
+    //    },
+    //    success: function (data) {
+    //        //if (data> 0) {
+    //        alert("Data saved successfully");
+    //        //} else {
+    //        //    alert("Something went wrong! please try again!");
+    //        //}
+    //    }
 
-    });
+    //});
 
-    var reportResultList = [];
+    //var reportResultList = [];
     $('#resultTable tr').each(function () {
         var MemberInfoId = $(this).find(".MemberInfoId").html();
-        var Mirning = $(this).find(".Mirning").html();
+        var Morning = $(this).find(".Morning").html();
         var Lunch = $(this).find(".Lunch").html();
         var Dinner = $(this).find(".Dinner").html();
         if (MemberInfoId !== null && typeof (MemberInfoId) !== 'undefined') {
             var data = {
                 //ReportResultId: 1,
                 MemberInfoId: MemberInfoId,
-                Mirning: Mirning,
+                Morning: Morning,
                 Lunch: Lunch,
                 Dinner: Dinner,
                 Date: date
             }
             
-         //  reportResultList.push(data);
+           //reportResultList.push(data);
             $.ajax({
                 type: "POST",
                 url: "../MillManage/PostMillInfo",
                 data: data,
                 success: function (data) {
                    // if (data > 0) {
-                        alert("Data saved successfully");
+                       // alert("Data saved successfully");
                    // } else {
                     //    alert("Something went wrong! please try again!");
                     //}
-
+                    
+                    console.log(JSON.stringify(data));
                 }
             });
         }
@@ -300,7 +310,23 @@ function saveData() {
 
     });
 
-  
+    //$.ajax({
+    //    type: "POST",
+    //    url: "../MillManage/PostMillInfo",
+    //    data: reportResultList,
+    //    dataType: "json",
+    //    contentType: "application/json; charset=utf-8",
+    //    success: function (data) {
+    //        console.log(JSON.stringify(data));
+    //        //if (data.length > 0) {
+    //        //    alert("Data saved successfully");
+    //        //} else {
+    //        //    alert("Something went wrong! please try again!");
+    //        //}
+
+    //    }
+    //})
+
     //console.log(JSON.stringify(reportResultList));
    
 }

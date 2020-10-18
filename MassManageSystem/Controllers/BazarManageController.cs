@@ -16,6 +16,11 @@ namespace MassManageSystem.Controllers
             return View();
         }
 
+        public ActionResult BazarManageIndex()
+        {
+            return View();
+        }
+
         // Insert Bazar Information
         [HttpPost]
         public ActionResult PostBazarInfo(BazarInfoTbl bazarInfoTbl)
@@ -28,5 +33,7 @@ namespace MassManageSystem.Controllers
             }
             return View(bazarInfoTbl);
         }
+
+
     }
 }

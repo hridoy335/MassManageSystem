@@ -18,7 +18,7 @@ namespace MassManageSystem.Controllers
 
         // get memberinfo 
         [HttpGet]
-        public ActionResult GetMemberInfo()
+        public JsonResult GetMemberInfo()
         {
 
             List<MemberInfoTbl> memberinfo = db.MemberInfoTbls.ToList();
