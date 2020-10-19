@@ -1,4 +1,4 @@
-﻿
+﻿@model MassManageSystem.Models.MemberInfoTbl
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,65 +7,63 @@
 <h2>Members Information </h2>
 
 
-    <div class="well">
-        <a href="#" class="btn btn-primary" onclick="AddMember(0)">New Member</a>
-        @*<a href="#" class="btn btn-primary" onclick="AddEditCourse(0)">New</a>*@
-    </div>
+<div class="well">
+    <a href="#" class="btn btn-primary" onclick="AddMember(0)">New Member</a>
+    @*<a href="#" class="btn btn-primary" onclick="AddEditCourse(0)">New</a>*@
+</div>
 
-    @*<div class="well">
+@*<div class="well">
 
-           @{  Html.RenderAction("Partial1");}
+       @{  Html.RenderAction("Partial1");}
 
-        </div>*@
-    <table class="display" id="MyDataTable">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Contact
-                </th>
-                <th>
-                    Email
-                </th>
-                <th>
-                    Image
-                </th>
-                <th>
-                    Parent Contact
-                </th>
-                <th>
-                    Status
-                </th>
-                <th>
+    </div>*@
+<table class="display" id="MyDataTable">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Contact
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Parent Contact
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
 
-                </th>
-
-
-            </tr>
-        </thead>
-
-        <tbody></tbody>
-
-    </table>
-
-    @*// Call edit course modal*@
-    <div class="modal fade" id="myModal1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a href="#" class="close" data-dismiss="modal">&times;</a>
-                    <h3 class="modal-title">Edit Member Info</h3>
-                </div>
-                <div class="modal-body" id="myModalBodyDiv1">
+            </th>
 
 
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+        </tr>
+    </thead>
 
-                </div>
+    <tbody></tbody>
+
+</table>
+
+@*// Call edit course modal*@
+<div class="modal fade" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Edit Member Info</h3>
+            </div>
+            <div class="modal-body" id="myModalBodyDiv1">
+
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
 
             </div>
 
@@ -73,22 +71,22 @@
 
     </div>
 
-    @*// call add new course modal*@
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a href="#" class="close" data-dismiss="modal">&times;</a>
-                    <h3 class="modal-title">Add New Member</h3>
-                </div>
-                <div class="modal-body" id="myModalBodyDiv">
+</div>
+
+@*// call add new course modal*@
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Add New Member</h3>
+            </div>
+            <div class="modal-body" id="myModalBodyDiv">
 
 
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-
-                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
 
             </div>
 
@@ -96,25 +94,27 @@
 
     </div>
 
-    @*// call Delete course modal*@
-    @*<div class="modal fade" id="myModal12">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <a href="#" class="close" data-dismiss="modal">&times;</a>
-                        <h3 class="modal-title">Delete Course info</h3>
-                    </div>
-                    <div class="modal-body" id="myModalBodyDiv23">
+</div>
 
-
-                    </div>
+@*// call Delete course modal*@
+@*<div class="modal fade" id="myModal12">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Delete Course info</h3>
+                </div>
+                <div class="modal-body" id="myModalBodyDiv23">
 
 
                 </div>
 
+
             </div>
 
-        </div>*@
+        </div>
+
+    </div>*@
 
 
 

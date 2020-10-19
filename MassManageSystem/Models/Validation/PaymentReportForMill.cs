@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MassManageSystem.Models.Validation
+namespace MassManageSystem.Models
 {
     [MetadataType(typeof(MetadataPaymentReportForMill))]
-    public class PaymentReportForMill
+    public partial class PaymentReportForMill
     {
     }
     public class MetadataPaymentReportForMill
