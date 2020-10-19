@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-  //  alert("MillManage js load");
+  // alert("MillManage js load");
     //getMemberInfo();
 });
 

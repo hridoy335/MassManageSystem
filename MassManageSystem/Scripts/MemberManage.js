@@ -10,7 +10,7 @@ function getMemberInfo() {
         type: "GET",
         url: "../MemberManage/GetMemberInfo",
         success: function (response) {
-           // console.log(JSON.stringify(response));
+          //  console.log(JSON.stringify(response));
             BindgetMemberInfodata(response);
         }
 
@@ -151,11 +151,12 @@ function PartialAddEditMemberInfo() {
     var email = $("#Email").val();
     var image = $("#Image").val();
     var parentContact = $("#ParentContact").val();
-    var status1 = $("#Status").val();
+    var status1 = $("#Status").is(":checked")
     var userName = $("#Username").val();
     var password = $("#Password").val();
     var MemberId = $("#Memberid").val();
-    console.log(JSON.stringify(userName))
+    var checkbox = $("#checkbox").is(":checked")
+   // console.log(JSON.stringify(status1));
     //var status;
     //if (status1 == true) {
     //     status = true;
@@ -164,7 +165,7 @@ function PartialAddEditMemberInfo() {
     
     //else { status = false; }
 
-    console.log(JSON.stringify(status));
+   // console.log(JSON.stringify(status));
 
     $.ajax({
         type: "POST",

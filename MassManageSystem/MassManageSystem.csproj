@@ -138,6 +138,7 @@
     <Compile Include="Models\BazarInfoTbl.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetMembers.cs" />
     <Compile Include="Models\MemberAccountInfoTbl.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

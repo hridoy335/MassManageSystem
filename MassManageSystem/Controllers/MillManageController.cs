@@ -32,10 +32,13 @@ namespace MassManageSystem.Controllers
 
         // get memberinfo 
         [HttpGet]
-        public ActionResult GetMemberInfo()
+        public JsonResult GetMemberInfo()
         {
-            List<MemberInfoTbl> memberinfo = db.MemberInfoTbls.Where(x=>x.Status==true).ToList();
-            return Json(memberinfo, JsonRequestBehavior.AllowGet);
+            //List<MemberInfoTbl> memberinfo = db.MemberInfoTbls.Where(x=>x.Status==true).ToList();
+            //return Json(memberinfo, JsonRequestBehavior.AllowGet);
+            GetMembers dal = new GetMembers();
+            List<MemberInfoTbl> Membersforbazar = dal.MemberInfoTblforBazar.ToList();
+            return Json(Membersforbazar, JsonRequestBehavior.AllowGet);
         }
 
         // Insert millinformation 

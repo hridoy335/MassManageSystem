@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +13,7 @@ namespace MassManageSystem.Controllers
     public class MemberManageController : Controller
     {
         Models.MassManageSystemEntities db = new MassManageSystemEntities();
+        
         // GET: MemberManage
         public ActionResult Index()
         {
@@ -21,22 +25,9 @@ namespace MassManageSystem.Controllers
         public JsonResult GetMemberInfo()
         {
 
-              List<MemberInfoTbl> memberinfo = db.MemberInfoTbls.ToList();
-            //  return Json(memberinfo, JsonRequestBehavior.AllowGet);
-
-            var info = db.MemberInfoTbls.ToList();
-            //List<MemberInfoTbl> List = db.MemberInfoTbls.Select(x => new MemberInfoTbl
-            //{
-            //    Name = x.Name,
-            //    Contact = x.Contact,
-            //    Email = x.Email,
-            //    Image = x.Image,
-            //    ParentContact = x.ParentContact,
-            //    Status = x.Status,
-            //}).ToList();
-
-            return Json(memberinfo, JsonRequestBehavior.AllowGet);
-
+            GetMembers dal = new GetMembers();
+            List<MemberInfoTbl> GelAllMemberInfo = dal.MemberInfoTbl.ToList();
+            return Json(GelAllMemberInfo, JsonRequestBehavior.AllowGet); 
 
         }
 
