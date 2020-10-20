@@ -64,6 +64,7 @@ namespace MassManageSystem.Models
                     while (rdr.Read())
                     {
                         MemberInfoTbl employee = new MemberInfoTbl();
+                        employee.MemberInfoId = Convert.ToInt32(rdr["MemberInfoId"]);
                         employee.Name = rdr["Name"].ToString();
                         employee.Contact = rdr["Contact"].ToString();
                         employee.Email = rdr["Email"].ToString();

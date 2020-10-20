@@ -260,15 +260,21 @@ function saveData() {
         data: {
             MemberInfoId: Membervalforbazar,
             TotalBazar: bazar,
-            Image: "",
+            Image: "w",
             Date: date
         },
         success: function (data) {
+           // debugger
             //if (data> 0) {
             alert("Data saved successfully");
+           // console.log(JSON.stringify(data));
             //} else {
             //    alert("Something went wrong! please try again!");
             //}
+
+            $('#date').val("");
+            $('#Bazar').val("");
+            $('#MemberForBazar').val(0)
         }
 
     });
@@ -296,7 +302,7 @@ function saveData() {
                 data: data,
                 success: function (data) {
                    // if (data > 0) {
-                       // alert("Data saved successfully");
+                        alert("Data saved successfully");
                    // } else {
                     //    alert("Something went wrong! please try again!");
                     //}

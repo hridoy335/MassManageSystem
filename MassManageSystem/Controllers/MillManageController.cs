@@ -34,8 +34,7 @@ namespace MassManageSystem.Controllers
         [HttpGet]
         public JsonResult GetMemberInfo()
         {
-            //List<MemberInfoTbl> memberinfo = db.MemberInfoTbls.Where(x=>x.Status==true).ToList();
-            //return Json(memberinfo, JsonRequestBehavior.AllowGet);
+
             GetMembers dal = new GetMembers();
             List<MemberInfoTbl> Membersforbazar = dal.MemberInfoTblforBazar.ToList();
             return Json(Membersforbazar, JsonRequestBehavior.AllowGet);
@@ -54,12 +53,10 @@ namespace MassManageSystem.Controllers
             }
             return View(millInfoTbl);
         }
-
+        // get member information for bazar and mill
         public JsonResult GetMillThisMonth()
         {
-            //GetMembers dal = new GetMembers();
-            //List<MemberInfoTbl> GelAllMemberInfo = dal.MemberInfoTbl.ToList();
-            //return Json(GelAllMemberInfo, JsonRequestBehavior.AllowGet);
+
             Models.DataLayer.GetMillThisMonthinfo dal = new Models.DataLayer.GetMillThisMonthinfo();
             List<MillInfoTbl> MillInfoTbl = dal.MillInfoTbl.ToList();
             return Json(MillInfoTbl, JsonRequestBehavior.AllowGet);
