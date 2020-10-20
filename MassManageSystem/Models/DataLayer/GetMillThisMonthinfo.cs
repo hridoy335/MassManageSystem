@@ -34,7 +34,9 @@ namespace MassManageSystem.Models.DataLayer
                         employee.Morning = Convert.ToInt32(rdr["Morning"]);
                         employee.Lunch = Convert.ToInt32(rdr["Lunch"]);
                         employee.Dinner = Convert.ToInt32(rdr["Dinner"]);
-                        employee.Date =DateTime.Parse((rdr["Date"]).ToString());
+                        employee.Date =Convert.ToDateTime((rdr["Date"]));
+                      //  employee.Date34 = Convert.ToDateTime("20/12/2020");
+                        //employee.Date =Convert.ToDateTime(Date.ToString("MMM dd, yyyy"));
                         MillInfos.Add(employee);
                     }
                 }
