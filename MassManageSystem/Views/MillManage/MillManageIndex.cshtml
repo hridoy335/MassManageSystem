@@ -9,6 +9,7 @@
 
 <div class="well">
     <a href="@Url.Action("AddTodayMill","MillManage")" class="btn btn-primary">Add Today Mill</a>
+    <a href="@Url.Action("AllMill","MillManage")" class="btn btn-primary">All Mill</a>
     @*<a href="#" class="btn btn-primary" onclick="AddEditCourse(0)">New</a>*@
 </div>
 
@@ -36,8 +37,40 @@
 
 </div>
 
+@*This month mill*@
+<table class="display" id="MyDataTable">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Morning
+            </th>
+            <th>
+                Lunch
+            </th>
+            <th>
+                Dinner
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+
+            </th>
+
+
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+
+</table>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/MillManage.js"></script>
+    <script src="~/Scripts/DataTable/js/jquery.dataTables.js"></script>
+    <link href="~/Content/DataTable/css/jquery.dataTables.css" rel="stylesheet" />
 }

@@ -55,7 +55,19 @@ namespace MassManageSystem.Controllers
             return View(millInfoTbl);
         }
 
-    
+        public JsonResult GetMillThisMonth()
+        {
+            //GetMembers dal = new GetMembers();
+            //List<MemberInfoTbl> GelAllMemberInfo = dal.MemberInfoTbl.ToList();
+            //return Json(GelAllMemberInfo, JsonRequestBehavior.AllowGet);
+            Models.DataLayer.GetMillThisMonthinfo dal = new Models.DataLayer.GetMillThisMonthinfo();
+            List<MillInfoTbl> MillInfoTbl = dal.MillInfoTbl.ToList();
+            return Json(MillInfoTbl, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
 
 
     }

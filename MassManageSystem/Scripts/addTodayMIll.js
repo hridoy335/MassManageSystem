@@ -254,24 +254,24 @@ function saveData() {
     }
    // alert(date);
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: "../BazarManage/PostBazarInfo",
-    //    data: {
-    //        MemberInfoId: Membervalforbazar,
-    //        TotalBazar: bazar,
-    //        Image: "",
-    //        Date: date
-    //    },
-    //    success: function (data) {
-    //        //if (data> 0) {
-    //        alert("Data saved successfully");
-    //        //} else {
-    //        //    alert("Something went wrong! please try again!");
-    //        //}
-    //    }
+    $.ajax({
+        type: "POST",
+        url: "../BazarManage/PostBazarInfo",
+        data: {
+            MemberInfoId: Membervalforbazar,
+            TotalBazar: bazar,
+            Image: "",
+            Date: date
+        },
+        success: function (data) {
+            //if (data> 0) {
+            alert("Data saved successfully");
+            //} else {
+            //    alert("Something went wrong! please try again!");
+            //}
+        }
 
-    //});
+    });
 
     //var reportResultList = [];
     $('#resultTable tr').each(function () {
