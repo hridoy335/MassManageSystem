@@ -34,6 +34,13 @@ namespace MassManageSystem.Controllers
             return View(bazarInfoTbl);
         }
 
+        [HttpGet]
+        public JsonResult GetBazarinfo()
+        {
+            Models.DataLayer.GetBazarInfo getBazarInfo = new Models.DataLayer.GetBazarInfo();
+            List<BazarInfoTbl> bazarInfoTbls = getBazarInfo.bazarInfoTbls.ToList();
+            return Json(bazarInfoTbls, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
