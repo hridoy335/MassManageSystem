@@ -77,3 +77,13 @@ function BindgetMemberInfodata(response) {
 
     });
 }
+
+function AddEditMillInfo(MillInfoId) {
+  //  alert("Yes");
+    var url = "../MillManage/PartialEditMill?MillInfoId="+ MillInfoId;
+
+    $("#myModalBodyDiv").load(url, function () {
+        $("#myModal").modal("show");
+
+    })
+}

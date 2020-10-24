@@ -64,9 +64,19 @@ namespace MassManageSystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddEditMillInfo()
+        public ActionResult PartialEditMill(int? MillInfoId) 
         {
-            return PartialView("PartialEditMill");
+            if (MillInfoId == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            MillInfoTbl millInfoTbl = db.MillInfoTbls.Find(MillInfoId);
+            if (millInfoTbl == null)
+            {
+                return HttpNotFound();
+            }
+            return View(millInfoTbl);
+            
         }
 
 
