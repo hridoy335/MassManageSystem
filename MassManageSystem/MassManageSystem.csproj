@@ -351,6 +351,8 @@
     <Content Include="Views\MillManage\MillAdd.cshtml" />
     <Content Include="Views\MillManage\AddTodayMill.cshtml" />
     <Content Include="Views\BazarManage\BazarManageIndex.cshtml" />
+    <Content Include="Views\BazarManage\PartialEditBazar.cshtml" />
+    <Content Include="Views\MillManage\PartialEditMill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

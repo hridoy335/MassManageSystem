@@ -63,6 +63,12 @@ namespace MassManageSystem.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult AddEditMillInfo()
+        {
+            return PartialView("PartialEditMill");
+        }
+
 
 
 

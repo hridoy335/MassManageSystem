@@ -42,5 +42,11 @@ namespace MassManageSystem.Controllers
             return Json(bazarInfoTbls, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult AddEditBazarInfo()  
+        {
+            return PartialView("PartialEditBazar");
+        }
+
     }
 }
