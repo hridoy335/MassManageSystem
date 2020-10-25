@@ -79,6 +79,24 @@ namespace MassManageSystem.Controllers
             
         }
 
+        [HttpPost]
+        public ActionResult PartialEditMill(MillInfoTbl millInfoTbl)
+        {
+            if (ModelState.IsValid)
+            {
+                var date = millInfoTbl.Date;
+                var millid = millInfoTbl.MillInfoId;
+                var AlreadyDatahave = db.MillInfoTbls.Where(x=>x.Date==date && x.MillInfoId==millid).FirstOrDefault();
+                if (AlreadyDatahave == null)
+                {
+                    db.Entry(millInfoTbl).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(1);
+                }
+            }
+            return Json(0);
+        }
+
 
 
 

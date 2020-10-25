@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-  // alert("MillManage js load");
+   //alert("MillManage js load");
     //getMemberInfo();
     getMillThisMonth() 
 });
@@ -86,4 +86,40 @@ function AddEditMillInfo(MillInfoId) {
         $("#myModal").modal("show");
 
     })
+}
+
+function UpdateMillInfo() {
+   // alert("Click ");
+    var MillInfoId = $("#MillInfoId").val();
+    var MemberInfoId = $("#MemberInfoId").val();
+    var Morning = $("#Morning").val();
+    var Lunch = $("#Lunch").val();
+    var Dinner = $("#Dinner").val();
+    var Date = $("#Date").val();
+    //alert(MemberInfoId);
+    $.ajax({
+        type: "POST",
+        url: "/../MillManage/PartialEditMill",
+        data: {
+            MillInfoId: MillInfoId,
+            MemberInfoId: MemberInfoId,
+            Morning: Morning,
+            Lunch: Lunch,
+            Dinner: Dinner,
+            Date: Date
+        },     
+        success: function (data) { 
+            if (data == 1) {
+                alert("Data update successfully...");
+                $("#loaderDiv").hide();
+                $("#myModal").modal("hide");
+                window.location.href = "/MillManage/MillManageIndex";
+            }
+            else {
+                alert("Something Worng ...");
+            }
+        }
+    });
+
+    
 }
