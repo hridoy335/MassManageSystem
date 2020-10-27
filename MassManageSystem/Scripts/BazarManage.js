@@ -37,12 +37,55 @@ function BindgetMemberInfodata(response) {
                 "mData": "BazarInfoId",
                 "render": function (BazarInfoId, type, full, meta) {
                     //debugger
-                    return '<a href="#" onclick="AddEditBazarInfo(' + BazarInfoId + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
+                    return '<a href="#" onclick="AddEditBazarInfo(' +BazarInfoId + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
                 }
             },
 
         ]
 
     });
+}
+
+function AddEditBazarInfo(BazarInfoId) {
+
+    var url = "../BazarManage/PartialEditBazar?BazarInfoId=" +BazarInfoId;
+
+$("#myModalBodyDiv").load(url, function () {
+    $("#myModal").modal("show");
+
+})
+}
+
+function UpdateBazarinfo() {
+    alert("Yes");
+    var BazarInfoId = $("#BazarInfoId").val();
+    var MemberInfoId = $("#MemberInfoId").val();
+    var TotalBazar = $("#TotalBazar").val();
+    var Image = $("#Image").val();
+    var Date = $("#Date").val();
+   // alert(MemberInfoId);
+    $.ajax({
+        type: "POST",
+        url: "../BazarManage/PartialEditBazar",
+        data: {
+            BazarInfoId: BazarInfoId,
+            MemberInfoId: MemberInfoId,
+            TotalBazar: TotalBazar,
+            Image: Image,
+            Date: Date
+        },
+        success: function (data) {
+           // debugger
+            if (data == 1) {
+                alert("Data insert successfully ...");
+                $("#loaderDiv").hide();
+                $("#myModal").modal("hide");
+                window.location.href = "../BazarManage/BazarManageIndex";
+            }
+            else {
+                alert("Somthing Wrong ...");
+            }
+        }
+    })
 }
 

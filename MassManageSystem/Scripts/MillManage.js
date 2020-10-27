@@ -99,7 +99,7 @@ function UpdateMillInfo() {
     //alert(MemberInfoId);
     $.ajax({
         type: "POST",
-        url: "/../MillManage/PartialEditMill",
+        url: "../MillManage/PartialEditMill",
         data: {
             MillInfoId: MillInfoId,
             MemberInfoId: MemberInfoId,
@@ -109,11 +109,12 @@ function UpdateMillInfo() {
             Date: Date
         },     
         success: function (data) { 
+       
             if (data == 1) {
                 alert("Data update successfully...");
                 $("#loaderDiv").hide();
                 $("#myModal").modal("hide");
-                window.location.href = "/MillManage/MillManageIndex";
+                window.location.href = "../MillManage/MillManageIndex";
             }
             else {
                 alert("Something Worng ...");

@@ -1,19 +1,22 @@
 ﻿@model MassManageSystem.Models.BazarInfoTbl
-
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>BazarInfoTbl</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.BazarInfoId)
+        @Html.HiddenFor(model => model.BazarInfoId, new { @id = "BazarInfoId" })
+        @Html.HiddenFor(model => model.MemberInfoId, new { @id = "MemberInfoId" })
 
         <div class="form-group">
             @Html.LabelFor(model => model.MemberInfoId, "MemberInfoId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MemberInfoId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.MemberInfoTbl.Name, new { htmlAttributes = new { @class = "form-control" }@*, @id = "MemberInfoId"*@ })
                 @Html.ValidationMessageFor(model => model.MemberInfoId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -21,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TotalBazar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalBazar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TotalBazar, new { htmlAttributes = new { @class = "form-control" }, @id = "TotalBazar" })
                 @Html.ValidationMessageFor(model => model.TotalBazar, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -29,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" }, @id = "Image" })
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -37,19 +40,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" }, @id = "Date" })*@
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @Value = @Model.Date.ToString("yyyy-MM-dd"), @class = "form-control", @id = "Date" } })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="button" value="Save" class="btn btn-default" id="UpdateBazarinfo()" onclick="UpdateBazarinfo()" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
