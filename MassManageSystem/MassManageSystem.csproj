@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountManageController.cs" />
     <Compile Include="Controllers\BazarManageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberManageController.cs" />
@@ -354,6 +355,7 @@
     <Content Include="Views\BazarManage\BazarManageIndex.cshtml" />
     <Content Include="Views\BazarManage\PartialEditBazar.cshtml" />
     <Content Include="Views\MillManage\PartialEditMill.cshtml" />
+    <Content Include="Views\AccountManage\AccountManageIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

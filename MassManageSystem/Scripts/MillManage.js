@@ -34,7 +34,7 @@ function getMillThisMonth() {
         type: "GET",
         url: "../MillManage/GetMillThisMonth",
         success: function (response) {
-             // console.log(JSON.stringify(response));
+              console.log(JSON.stringify(response));
             BindgetMemberInfodata(response);
         }
 

@@ -18,7 +18,7 @@ namespace MassManageSystem.Models.DataLayer
                 List<BazarInfoTbl> bazarinfo  = new List<BazarInfoTbl>();
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT BazarInfoId,MemberInfoId,TotalBazar,Image,Date from BazarInfoTbl", con);
+                    SqlCommand cmd = new SqlCommand("SELECT Name,BazarInfoId,TotalBazar,Date from MemberInfoTbl RIGHT JOIN BazarInfoTbl ON MemberInfoTbl.MemberInfoId= BazarInfoTbl.MemberInfoId", con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
 

@@ -21,7 +21,8 @@ namespace MassManageSystem.Models.DataLayer
                 List<MillInfoTbl> MillInfos = new List<MillInfoTbl>();
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT MillInfoId,MemberInfoId,Morning,Lunch,Dinner,Date from MillInfoTbl", con);
+                  //  SqlCommand cmd = new SqlCommand("SELECT MillInfoId,MemberInfoId,Morning,Lunch,Dinner,Date from MillInfoTbl", con);
+                    SqlCommand cmd = new SqlCommand("SELECT Name,MillInfoId,Morning,Lunch,Dinner,Date from MemberInfoTbl RIGHT JOIN MillInfoTbl ON  MillInfoTbl.MemberInfoId=MemberInfoTbl.MemberInfoId", con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
 
@@ -30,7 +31,8 @@ namespace MassManageSystem.Models.DataLayer
                     {
                         MillInfoTbl employee = new MillInfoTbl();
                         employee.MillInfoId = Convert.ToInt32(rdr["MillInfoId"]);
-                        employee.MemberInfoId = Convert.ToInt32(rdr["MemberInfoId"]);
+                        var name = rdr["Name"];
+                       // employee.MemberInfoId = Convert.ToInt32(rdr["Name"]);
                         employee.Morning = Convert.ToInt32(rdr["Morning"]);
                         employee.Lunch = Convert.ToInt32(rdr["Lunch"]);
                         employee.Dinner = Convert.ToInt32(rdr["Dinner"]);
