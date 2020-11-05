@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassManageSystem.DTO;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,31 +11,49 @@ namespace MassManageSystem.Models.DataLayer
 {
     public class GetBazarInfo
     {
-        public IEnumerable<BazarInfoTbl> bazarInfoTbls
+        public List<BazarDTO> bazarInfoTbls()
         {
-            get
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["MassConnection"].ConnectionString;
-                List<BazarInfoTbl> bazarinfo  = new List<BazarInfoTbl>();
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT Name,BazarInfoId,TotalBazar,Date from MemberInfoTbl RIGHT JOIN BazarInfoTbl ON MemberInfoTbl.MemberInfoId= BazarInfoTbl.MemberInfoId", con);
-                    cmd.CommandType = CommandType.Text;
-                    con.Open();
 
-                    SqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        BazarInfoTbl employee = new BazarInfoTbl(); 
-                        employee.BazarInfoId = Convert.ToInt32(rdr["BazarInfoId"]);
-                        employee.MemberInfoId = Convert.ToInt32(rdr["MemberInfoId"]);
-                        employee.TotalBazar = Convert.ToInt32(rdr["TotalBazar"]);
-                        employee.Image = rdr["Image"].ToString();
-                        employee.Date = Convert.ToDateTime((rdr["Date"]));
-                        bazarinfo.Add(employee);
-                    }
+            string connectionString = ConfigurationManager.ConnectionStrings["MassConnection"].ConnectionString;
+            List<BazarInfoTbl> bazarinfo = new List<BazarInfoTbl>();
+            List<BazarDTO> info2 = new List<BazarDTO>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Name,BazarInfoTbl.MemberInfoId,BazarInfoId,TotalBazar,BazarInfoTbl.Image,Date from MemberInfoTbl RIGHT JOIN BazarInfoTbl ON MemberInfoTbl.MemberInfoId= BazarInfoTbl.MemberInfoId", con);
+                // SqlCommand cmd = new SqlCommand("SELECT BazarInfoId,MemberInfoId,TotalBazar,Image,Date from BazarInfoTbl ", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    BazarDTO bazar = new BazarDTO();
+                    //BazarInfoTbl employee = new BazarInfoTbl();
+                    bazar.BazarInfoId = Convert.ToInt32(rdr["BazarInfoId"]);
+                    bazar.Name = rdr["Name"].ToString();
+                    bazar.MemberInfoId = Convert.ToInt32(rdr["MemberInfoId"]);
+                    bazar.TotalBazar = Convert.ToInt32(rdr["TotalBazar"]);
+                    bazar.Image = rdr["Image"].ToString();
+                    bazar.Date = Convert.ToDateTime((rdr["Date"]));
+                    // bazarinfo.Add(employee);
+
+
+
+                    // bazar.Name = (rdr["Name"]);
+                    //// info.Add(rdr["MemberInfoId"]);
+                    // info.Add(rdr["BazarInfoId"]);
+
+                    // info.Add(rdr["TotalBazar"]);
+                    //// info.Add(rdr["Image"]);
+                    // info.Add(rdr["Date"]);
+                    // bazarinfo.Add(info);
+                    info2.Add(bazar);
+
                 }
-                return bazarinfo;
+
+                return info2;
+
+
             }
         }
     }

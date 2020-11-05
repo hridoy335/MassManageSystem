@@ -9,7 +9,7 @@ function GetBazarinfo() {
         type: "GET",
         url: "../BazarManage/GetBazarinfo",
         success: function (response) {
-            //console.log(JSON.stringify(response));
+            console.log(JSON.stringify(response));
              BindgetMemberInfodata(response);
         }
     })
@@ -21,9 +21,9 @@ function BindgetMemberInfodata(response) {
         "aaData": response,
         "aoColumns": [
 
-            { "mData": "MemberInfoId" },
+            { "mData": "Name" },
             { "mData": "TotalBazar" },
-            { "mData": "Image" },
+            //{ "mData": "Image" },
             {
                 "mData": "Date",
                 "render": function (d) {

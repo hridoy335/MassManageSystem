@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MassManageSystem.DTO;
 using MassManageSystem.Models;
 
 namespace MassManageSystem.Controllers
@@ -37,8 +38,11 @@ namespace MassManageSystem.Controllers
         [HttpGet]
         public JsonResult GetBazarinfo()
         {
+           // List<object> info2 = new List<object>();
             Models.DataLayer.GetBazarInfo getBazarInfo = new Models.DataLayer.GetBazarInfo();
-            List<BazarInfoTbl> bazarInfoTbls = getBazarInfo.bazarInfoTbls.ToList();
+            List<BazarDTO> bazarInfoTbls = getBazarInfo.bazarInfoTbls(); 
+
+           // info2.Add(bazarInfoTbls);
             return Json(bazarInfoTbls, JsonRequestBehavior.AllowGet);
         }
 
