@@ -47,7 +47,7 @@ function BindgetMemberInfodata(response) {
         "aaData": response,
         "aoColumns": [
 
-            { "mData": "MemberInfoId" },
+            { "mData": "Name" },
             { "mData": "Morning" },
             { "mData": "Lunch" },
             { "mData": "Dinner" },

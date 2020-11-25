@@ -134,6 +134,7 @@
     <Compile Include="Controllers\MemberManageController.cs" />
     <Compile Include="Controllers\MillManageController.cs" />
     <Compile Include="DTO\BazarDTO.cs" />
+    <Compile Include="DTO\MillDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

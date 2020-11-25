@@ -63,7 +63,7 @@ function UpdateBazarinfo() {
     var TotalBazar = $("#TotalBazar").val();
     var Image = $("#Image").val();
     var Date = $("#Date").val();
-   // alert(MemberInfoId);
+    alert(MemberInfoId);
     $.ajax({
         type: "POST",
         url: "../BazarManage/PartialEditBazar",

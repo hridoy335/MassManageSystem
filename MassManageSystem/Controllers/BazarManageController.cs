@@ -66,15 +66,15 @@ namespace MassManageSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                var date = bazarInfoTbl.Date;
-                var bazarid = bazarInfoTbl.BazarInfoId;
-                var matchdata = db.BazarInfoTbls.Where(x => x.BazarInfoId == bazarid && x.Date == date).FirstOrDefault();
-                if (matchdata == null)
-                {
+                //var date = bazarInfoTbl.Date;
+                //var bazarid = bazarInfoTbl.BazarInfoId;
+                //var matchdata = db.BazarInfoTbls.Where(x => x.BazarInfoId == bazarid && x.Date == date).FirstOrDefault();
+                //if (matchdata != null)
+                //{
                     db.Entry(bazarInfoTbl).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     return Json(1);
-                }
+                //}
                 
             }
             return View(bazarInfoTbl);

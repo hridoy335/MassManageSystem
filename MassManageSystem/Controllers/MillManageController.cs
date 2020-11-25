@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MassManageSystem.Models;
+using MassManageSystem.DTO;
 
 namespace MassManageSystem.Controllers
 {
@@ -58,7 +59,7 @@ namespace MassManageSystem.Controllers
         {
 
             Models.DataLayer.GetMillThisMonthinfo dal = new Models.DataLayer.GetMillThisMonthinfo();
-            List<MillInfoTbl> MillInfoTbl = dal.MillInfoTbl.ToList();
+            List<MillDTO> MillInfoTbl = dal.MillInfoTbl();
             return Json(MillInfoTbl, JsonRequestBehavior.AllowGet);
 
         }
