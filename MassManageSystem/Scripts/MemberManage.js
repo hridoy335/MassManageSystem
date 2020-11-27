@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     //alert("MemberManage js");
     getMemberInfo();
+
 });
 
 // get Memberinfo data and show this data
@@ -54,15 +55,30 @@ function AddMember() {
 
 // Add Memberinfo partialview data save
 function SaveMember() {
-    var er=0;
+    debugger
+    var er = 0;
     var name = $("#Name").val();
     var contact = $("#Contact").val();
     var email = $("#Email").val();
-    var image = $("#Image").val();
+   // var image = $("#Image").val();
     var parentContact = $("#ParentContact").val();
     var status = $("#Status").val();
     var userName = $("#UserName").val();
     var password = $("#Password").val();
+    var file2 = $("#Imagefile").val();
+
+    var file = $("#Imagefile").get(0).files;
+    var data = new FormData;
+    data.append("Imagefile", file[0]);
+    data.append("Name", name);
+    data.append("Contact", contact);
+    data.append("Email", email);
+    data.append("ParentContact", parentContact);
+    data.append("Status", status);
+    data.append("UserName", userName);
+    data.append("Password", password);
+    //var filedata = new FormData;
+    //filedata.append("ImageFile", file[0]);
 
     //if (name == null || name == "" || name == undefined)
     //{
@@ -105,17 +121,20 @@ function SaveMember() {
     $.ajax({
         type: "POST",
         url: "../MemberManage/AddMemberInfo",
-        data: {
-            Name: name,
-            Contact: contact,
-            Email: email,
-            Image: image,
-            ParentContact: parentContact,
-            Status: status,
-            UserName: userName,
-            Password: password
+        data: data,
+        contentType: false,
+        processData: false,
+        //{
+        //    Name: name,
+        //    Contact: contact,
+        //    Email: email,
+        //    Image: file2,
+        //    ParentContact: parentContact,
+        //    Status: status,
+        //    UserName: userName,
+        //    Password: password
 
-        },
+        //},
         success: function (data) {
             if (data == true) {
                 alert("Save MemberInfo Successfully .. ");
@@ -197,3 +216,4 @@ function PartialAddEditMemberInfo() {
         }
     });
 } 
+

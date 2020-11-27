@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MassManageSystem.Models;
+using System.IO;
 
 namespace MassManageSystem.Controllers
 {
@@ -39,7 +40,7 @@ namespace MassManageSystem.Controllers
             return PartialView("PartialAddMemberinfo");
         }
         [HttpPost]
-        public ActionResult AddMemberInfo(MemberInfoTbl memberInfoTbl)
+        public ActionResult AddMemberInfo(MemberInfoTbl memberInfoTbl, HttpPostedFileBase Imagefile) 
         {
             int er = 0;
             if (memberInfoTbl.Name == null)
@@ -57,11 +58,11 @@ namespace MassManageSystem.Controllers
                 er++;
                 // return Json("Not Insert");
             }
-            if (memberInfoTbl.Image == null)
-            {
-                er++;
-                //return Json("Not Insert");
-            }
+            //if (memberInfoTbl.Image == null)
+            //{
+            //    er++;
+            //    //return Json("Not Insert");
+            //}
             if (memberInfoTbl.ParentContact == null)
             {
                 er++;
@@ -83,6 +84,14 @@ namespace MassManageSystem.Controllers
                 return Json(false);
             }
 
+            var image = memberInfoTbl.Image;
+            string path = UploadImage(Imagefile); 
+            if (path.Equals("-1"))
+            {
+                return View(image);
+            }
+            //MemberInfoTbl memberInfoTbl1 = new MemberInfoTbl();
+            memberInfoTbl.Image = path;
             if (ModelState.IsValid)
             {
                 db.MemberInfoTbls.Add(memberInfoTbl);
@@ -129,6 +138,45 @@ namespace MassManageSystem.Controllers
                 return Json(true);
             }
             return Json(false);
+        }
+
+        public string UploadImage(HttpPostedFileBase file)
+        {
+            Random ran = new Random();
+            string path = "-1";
+            int random = ran.Next();
+            if (file != null && file.ContentLength > 0)
+            {
+                string extention = Path.GetExtension(file.FileName);
+                if (extention.ToLower().Equals(".jpg") || extention.ToUpper().Equals(".JPG") || extention.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("~/Image/MemberImage/"), random + Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                        path = "~/Image/MemberImage/" + random + Path.GetFileName(file.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+
+                }
+                else
+                {
+                    Response.Write("<script>alrt('Only jpg or JPG or png formate'); <script>");
+                }
+
+            }
+            else
+            {
+                Response.Write("<script>alrt('Please select file ..'); <script>");
+                path = "-1";
+
+            }
+
+
+            return path;
         }
     }
 }

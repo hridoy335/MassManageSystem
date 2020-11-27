@@ -29,7 +29,7 @@
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Image" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="ParentContact" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />

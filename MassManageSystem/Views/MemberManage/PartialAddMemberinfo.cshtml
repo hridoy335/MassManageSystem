@@ -47,8 +47,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" }, @id = "Image" })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                <div>
+                    <input type="file" id="Imagefile" name="Imagefile" class="btn-info" />
+                </div>
+
+                <div id="imgPreview" class="thumbnail" style="display:none; width:20%; height:20%">
+                    <img class="img-responsive" id="targetImg" />
+                    <div class="caption">
+                        <a href="#" onclick="ClearPreImage()"><i class="glyphicon glyphicon-trash"></i></a>
+                        <span id="description"></span>
+                    </div>
+
+                </div>
+
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" }, @id = "Image" })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -96,6 +109,55 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/AddMembers.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 }
+<script>
+    $(document).ready(function ()
+    {
+        $("#Imagefile").change(function () {
+
+            var File = this.files;
+
+            if (File && File[0]) {
+                ReadImage(File[0]);
+            }
+
+        })
+
+        var ReadImage = function (file) {
+
+            var reader = new FileReader;
+            var image = new Image;
+
+            reader.readAsDataURL(file);
+            reader.onload = function (_file) {
+
+                image.src = _file.target.result;
+                image.onload = function () {
+
+                    var height = this.height;
+                    var width = this.width;
+                    var type = file.type;
+                    var size = ~~(file.size / 1024) + "KB";
+
+                    $("#targetImg").attr('src', _file.target.result);
+                    $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                    $("#imgPreview").show();
+
+                }
+
+            }
+          
+        }
+    
+
+        //var ClearPreImage = function () {
+        //    $("#Imagefile").val('');
+        //    $("#description").text('');
+        //    $("#imgPreview").hide();
+
+        //}
+    });
+</script>
